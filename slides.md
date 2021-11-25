@@ -5,14 +5,11 @@ class: middle, center
 Deno の これまで と これから
 
 ---
-class: middle center
+アジェンダ
 
-Deno 知ってますか? 🙋‍♀️🙋‍♂️
-
----
-class: middle center
-
-Deno 使ってますか? 🙋‍♀️🙋‍♂️
+- Deno の始まり
+- Deno のこれまでのロードマップ
+- Deno のこれからのロードマップ
 
 ---
 # 話す人
@@ -38,38 +35,62 @@ class: jsconfeu2018
 JSConf EU 2018
 
 ---
-~~10~~ 7 things I regret about Node.js
+「Node.js について後悔している10の事」
 
-- Regret 1: Promise を使わなかった
-- Regret 2: Security Sandbox を使わなかった
-- Regret 3: GYP を使い続けてしまった
-- Regret 4: package.json
-- Regret 5: node_modules
-- Regret 6: Extensionless module resolution
-- Regret 7: index.js 
+- Node.js の作者 Ryan Dahl が Node.js の現状のデザインについて、今の視点からみて後悔している7つの事を発表
+- それを克服する新しい処理系として Deno プロジェクトを提案
 
----
-~~10~~ 7 things I regret about Node.js
-
-- 1 -> Promise ベース API を 0 からデザイン ✅
-- 2 -> V8 から出るときに権限をチェック ✅
-- 3 -> 最初から GN を使う ✅
-- 4 -> URL imports による依存解決 ✅
-- 5 -> URL imports による依存解決 ✅
-- 6 -> ブラウザ互換なモジュール解決 ✅
-- 7 -> ブラウザ互換なモジュール解決 ✅
+<p style="text-align: center">
+  <img src="assets/jsconfeu2018-2.jpg" width="400" />
+</p>
 
 ---
-Deno とは
+7つの後悔
 
-- 2018年に開発が始まった新しい JavaScript / TypeScript 実行環境。
-- Ryan Dahl は改めて Node.js を使い始めようとしたが、いくつかの点で Node.js はデザインがおかしいと感じたため、新しいランタイムを 0 からデザインしようと考えた
+- 後悔1: Promise を使わなかった
+- 後悔2: Security Sandbox を使わなかった
+- 後悔3: GYP を使い続けてしまった
+- 後悔4: package.json
+- 後悔5: node_modules
+- 後悔6: モジュール解決時の拡張子省略
+- 後悔7: index.js
 
+(詳細は Deno アドベントカレンダー「7つの後悔を振り返る」を参照)
+
+---
+Deno のゴール
+
+1. セキュリティ
+2. ES Module
+3. TypeScript ビルトイン
+4. 実行ファイル単体で動く
+5. モダンな開発環境を使う
+6. 可能な限り Web 互換
+
+(詳細は後述します)
+
+---
+Deno プロジェクトの始動
+
+- 発表後一時的にDeno ブームのような状況に
+- 数ヶ月程度するとブームが収まって地道な開発が始まる
 
 ---
 class: inverse middle center
 
-Deno のこれまで
+その後
+
+---
+2020
+
+- 5月 Deno v1.0 リリース
+  - ここからは6週(2021年からは4週)に1回リリースペースとなる
+- 9月 Deno の会社が設立
+
+2021
+
+- 3月 Deno Deploy 発表
+- 11月 Deno v1.16 リリース
 
 ---
 Deno のこれまでのロードマップ
