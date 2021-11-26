@@ -25,14 +25,19 @@ Deno の これまで と これから
 <small>2018年から Deno にコントリビュートを開始。2020年作者に誘われ Deno Land に転職。現在はフルタイムで Deno と Deno Deploy を開発中。</small>
 
 ---
-class: inverse middle center
+class: middle center
 
 Deno とは
 
 ---
 class: inverse middle center
 
-3年前
+今から3年前
+
+---
+class: inverse middle center
+
+とあるカンファレンス
 
 ---
 class: jsconfeu2018
@@ -60,7 +65,7 @@ JSConf EU 2018
 - 後悔6: モジュール解決時の拡張子省略
 - 後悔7: index.js
 
-(詳細は Deno アドベントカレンダー「7つの後悔を振り返る」を参照)
+Node.js の「あたりまえ」を否定
 
 ---
 対案としての Deno 、そのゴール
@@ -68,35 +73,21 @@ JSConf EU 2018
 1. セキュリティ
 2. ES Module
 3. TypeScript ビルトイン
-4. 実行ファイル単体で動く
+4. 単体の実行ファイルで動く
 5. モダンな開発環境を使う
 6. 可能な限り Web 互換
 
-などの目標が掲げられた (詳細は後述)
+などの目標が掲げられた
 
 ---
+class: middle center
+
 Deno とは
 
-- サーバーサイド JavaScript 処理系
-- TypeScript ビルトインサポート
-- Web 互換 API (fetch, Web Crypto etc)
-- Rust で書かれている (高速 & セキュア)
-- サンドボックスセキュリティ機能 (後述)
-
 ---
 class: middle center
 
-# 要は
-
----
-class: middle center
-
-# Deno is
-
----
-class: middle center
-
-# Deno is "改良版" Node.js
+Deno とは "改良版" Node.js
 
 ---
 class: middle center
@@ -104,14 +95,14 @@ class: middle center
 <img src="./assets/node-sort-deno-tweet.png" align="center" width="600" />
 
 ---
-class: inverse middle center
+class: middle center
 Deno のこれまで
 
 ---
 Deno のこれまでのロードマップ
 - Web 互換性
 - TypeScript サポート
-- V8 サンドボックスセキュリティ
+- V8 サンドボックスセキュリティの活用
 - HTTPパフォーマンス
 
 ---
@@ -123,9 +114,12 @@ Web 互換性
 Web 互換性
 
 - Deno には可能な限り Web 互換 API を取り入れるというデザイン方針がある
+- サーバーサイドでも意味がある Web API を出来るだけ取り入れる
 
 ---
 Web 互換性
+
+Deno に実装されている Web API の例
 
 - http client - fetch API
 - バイナリ処理 - TypedArray API (Uint8Array, etc)
@@ -136,6 +130,8 @@ Web 互換性
 ---
 Web 互換性
 
+Deno に実装されている Web API の例
+
 - 暗号 - Web Crypto API
 - GPU - WebGPU
 - http server - Request, Response API
@@ -145,7 +141,7 @@ Web 互換性
 Web 互換性 - 最近の進捗 - WPT
 
 - 2021年1月 Web Platform テストを CI に導入
-- Web Platform Test = ブラウザが共通で通している Web API のテストスイートがある
+- Web Platform Test = ブラウザが共通で通している Web API のテストスイート
 - コミット毎に Web 互換性をチェックするように
 
 <p class="text-align: center">
@@ -187,6 +183,8 @@ console.log(res.body.text);
             ~~~~~~~~
 ```
 
+↑ 実行時エラーではなく型エラー
+
 ---
 TypeScript サポート - 最近の進捗
 
@@ -197,6 +195,15 @@ TypeScript サポート - 最近の進捗
   <img src="./assets/deno-vscode.png" width="600" />
 </p>
 
+---
+TypeScript サポート `deno lsp`
+
+- ネットワーク越しの TypeScript も型補完が可能
+- エコシステム全体に型がついている
+
+<p class="text-align: center">
+  <img src="./assets/deno-lsp-network.png" width="600" />
+</p>
 
 ---
 class: inverse middle center
@@ -206,8 +213,11 @@ class: inverse middle center
 ---
 サンドボックスセキュリティ
 
-- V8 はブラウザ用 JavaScript エンジン
-- ブラウザ上で JavaScript を安全に実行するため、実行環境が厳格にサンドボックス化されている。
+前提の話
+
+- Deno は内部的に V8 エンジンを使っている。
+- ブラウザ上で JavaScript を安全に実行するため、V8 エンジンの実行環境は厳格にサンドボックス化されている。
+- => V8 の外に影響を及ぼせないようになっている
 
 ---
 サンドボックスセキュリティ
@@ -284,19 +294,33 @@ class: middle center
 Deno のユニークなデザインは<br />一定の評価を受けつつある
 
 ---
-Deno の採用例
+Deno の採用例 - GitHub
 
-GitHub
+次世代 Data Access API
+
+<p style="text-align: center">
+  <a href="https://next.github.com/projects/flat-data">
+    <img src="./assets/flat-data.png" width="750" />
+  </a>
+</p>
 
 ---
-Deno の採用例
+Deno の採用例 - Jake Archibald
 
-Jake Archibold
+<p style="text-align: center">
+  <a href="https://twitter.com/jaffathecake/status/1447900413609529347">
+    <img src="./assets/cors-playground.png" width="500" />
+  </a>
+</p>
 
 ---
-Deno の採用例
+Deno の採用例 - Slack
 
-Slack
+<p style="text-align: center">
+  <a href="https://deno.com/blog/slack">
+    <img src="./assets/slack-deno.png" width="600" />
+  </a>
+</p>
 
 ---
 class: inverse middle center
@@ -324,33 +348,57 @@ class: inverse middle center
 Node.js 互換性
 
 ---
+class: inverse middle center
+
+デモ
+
+---
 Node.js 互換性をなぜやるか
 
 - Deno は自体は良く出来ているが、Node.js と違いすぎるため使えないという意見が多い
 - 実際 Deno の新規インストール数は、横ばい気味
+- Node.js 互換性を導入すればユーザー数が増える可能性がある
+- Node.js と互換性がないのは意図的なデザインであったはず・・・
+
+
+---
+Node.js 互換性をなぜやるか
+
+- Deno は自体は良く出来ているが、Node.js と違いすぎるため使えないという意見が多い
+- 実際 Deno の新規インストール数は、横ばい気味
+- Node.js 互換性を導入すればユーザー数が増える可能性がある
+- Node.js と互換性がないのは意図的なデザインであったはず・・・
+
+Node.js 互換性を巡って社内・コミュニティ内でも混乱状態に
+
+---
+class: middle center
+
+<a href="https://www.joelonsoftware.com/2000/05/24/strategy-letter-ii-chicken-and-egg-problems/">
+プラットフォームビジネスの<br />Chicken and Egg problem
+</a>
+
+by Joel Spolsky
 
 ---
 Chicken and Egg problem
 
-- Joel Spolsky の記事
+- ある新しいプラットフォームを構築したい場合に
+  - ユーザーが少なければ、そのプラットフォームで動くソフトは増えない
+  - ソフトが少なければ、そのプラットフォームを使うユーザーは増えない
 
 ---
 Chicken and Egg problem
 
-- あるプラットフォームを構築したい場合に
-  - そのプラットフォームのユーザーが少なければそのプラットフォームで動くソフトは増えない
-  - そのプラットフォームで動くソフトが少なければ、ユーザーは増えない
-
----
-Chicken and Egg problem
-
-- ユーザーが増えればソフトが増える、ソフトが増えればユーザーが増える
+- ユーザーが増えればソフトが増える
+- ソフトが増えればユーザーが増える
 - どっちが先に増える?
 
 ---
 Chicken and Egg problem
 
-- ユーザーが増えればソフトが増える、ソフトが増えればユーザーが増える
+- ユーザーが増えればソフトが増える
+- ソフトが増えればユーザーが増える
 - どっちが先に増える?
 
 => そのままではどちらも急には増えない
@@ -358,41 +406,57 @@ Chicken and Egg problem
 ---
 Chicken and Egg problem
 
-- この問題を解決する方法が、前プラットフォームとの互換性をとること
-- 例. windows 3.1
-  - MS-DOS と互換性をとったため、最初から使えるソフトが多かった
+- ユーザーが増えればソフトが増える
+- ソフトが増えればユーザーが増える
+- どっちが先に増える?
+
+=> そのままではどちらも急には増えない
+
+=> この状況に陥ったまま消えたプラットフォームは多い
+---
+Chicken and Egg problem
+
+- ユーザーが増えればソフトが増える
+- ソフトが増えればユーザーが増える
+- どっちが先に増える?
+
+=> そのままではどちらも急には増えない
+
+=> この状況に陥ったまま消えたプラットフォームは多い
+
+=> まさに Deno が今直面している状況 (と Deno チームは考えました)
 
 ---
 Chicken and Egg problem
 
-- 前プラットフォームとの互換性を取る事をしないプラットフォームは開発費が嵩むだけで、やがて力尽きるパターンが多い
-- Deno はまさにこの状態になっていると Ryan Dahl は考えた(ようです)
+- この問題を解決する方法が、前プラットフォームとの互換性をとること
+- 例. Windows 3.x
+  - Windows 1.0, 2.0 は流行らなかった
+  - 3.0 で DOS platform との互換性をとったため、使えるソフトが一気に増えて流行った
+- 例. Windows 95
+  - Windows 3.x 系との互換性に異常に拘って実装
+  - 結果最初から使えるソフトが多かった
+
+---
+Chicken and Egg problem
+
+- Node.js 互換性で Chicken and Egg problem を解決できるのではないか?
 
 ---
 Node.js 互換性
 
-```
-deno run --compat index.js
-```
-
-とすると、Node.js 用に書かれた index.js がそのまま動くという機能
-
-デモ
-
----
-Node.js 互換性
-
+- Deno は Node.js 互換性を実現して既存 Node.js ユーザーの取り込みを目指しています
 - 2022年Q2リリース予定
 
 ---
-class: inverse middle center
+class: middle center
 
 まとめ
 
 ---
 まとめ
 
-- Deno は (大雑把に言うと) "改良版" Node.js
+- Deno は "改良版" Node.js を目指すプロジェクト
 - Deno はこれまで Web 互換性、セキュリティ、TypeScript サポートに力を入れてきて、一定の成果をあげた
 - Deno はこれから Node.js 互換性に力を入れる
 
